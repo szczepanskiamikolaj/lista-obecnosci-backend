@@ -44,11 +44,12 @@ public void initializeAdminUser() {
     if (!userRepository.findByUsername(adminUsername).isPresent()) {
         try {
             String adminPassword = getAdminPasswordFromEnvironment();
+            String adminEmail = getAdminEmailFromEnviroment();
 
             User adminUser = new User();
             adminUser.setUsername(adminUsername);
             adminUser.setPassword(passwordEncoder.encode(adminPassword));
-            adminUser.setName("sys"); adminUser.setSurname("admin"); adminUser.setEmail("admin@gmail.com");
+            adminUser.setName("sys"); adminUser.setSurname("admin"); adminUser.setEmail(adminEmail);
             
             Role adminRole = roleRepository.findById(3L)
                     .orElseGet(() -> {
@@ -77,8 +78,12 @@ public void initializeAdminUser() {
 
     private String getAdminPasswordFromEnvironment() {
         String adminPassword = System.getenv("ADMIN_PASSWORD");
-
         return adminPassword != null ? adminPassword : "TheEscapee3125!!!";
+    }
+
+    private String getAdminEmailFromEnviroment() {
+        String adminPassword = System.getenv("ADMIN_EMAIL");
+        return adminPassword != null ? adminPassword : "admin@email.com";
     }
 }
 

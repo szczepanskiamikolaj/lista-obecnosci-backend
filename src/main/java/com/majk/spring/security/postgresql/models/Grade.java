@@ -1,7 +1,6 @@
 
 package com.majk.spring.security.postgresql.models;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 
 import jakarta.persistence.*;
