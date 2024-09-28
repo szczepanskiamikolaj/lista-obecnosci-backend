@@ -1,6 +1,6 @@
 # Lista Obecności - Backend
 
-This is the backend for a digital attendance list web application, built using Spring Boot. The application is designed to handle user authentication, role-based access, and attendance management. The backend is fully integrated with a PostgreSQL database, using Hibernate for ORM. To see the frontend, visit [Frontend Link](#).
+This is the backend for a digital attendance list web application, built using Spring Boot. The application is designed to handle user authentication, role-based access, and attendance management. The backend is fully integrated with a PostgreSQL database, using Hibernate for ORM. To see the frontend, visit [https://github.com/szczepanskiamikolaj/lista-obecnosci-frontend](https://github.com/szczepanskiamikolaj/lista-obecnosci-frontend).
 
 ## Features
 
@@ -24,7 +24,7 @@ The following environment variables can be configured for the application (defau
 | `DB_PORT`            | The port for the PostgreSQL database.                                  | `5432`                         |
 | `DB_NAME`            | The name of the PostgreSQL database.                                   | `postgres`                     |
 | `DB_USERNAME`        | The username for accessing the PostgreSQL database.                    | `postgres`                     |
-| `DB_PASSWORD`        | The password for accessing the PostgreSQL database.                    | `password`                     |
+| `DB_PASSWORD`        | The password for accessing the PostgreSQL database.                    | `123!@#QWE`                    |
 | `ADMIN_PASSWORD`     | The password for the built-in admin user `systemadmin`.                | `TheEscapee3125!!!`            |
 | `ADMIN_EMAIL`        | The email address for the built-in admin user `systemadmin`.           | `admin@email.com`              |
 
@@ -38,7 +38,7 @@ To get started with the backend, follow these steps:
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/your-username/lista-obecnosci-backend.git
+   git clone https://github.com/szczepanskiamikolaj/lista-obecnosci-backend.git
    ```
 2. Configure the environment variables (either in a .env file or directly in your environment).
 3. Build and run the application using Maven:

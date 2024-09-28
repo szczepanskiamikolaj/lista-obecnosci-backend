@@ -18,9 +18,11 @@ public class Grade {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(unique = true)
     @NotBlank
     @Size(max=20)
     private String name;
+
 
     @ManyToMany(mappedBy = "grades")
     private Set<User> users;

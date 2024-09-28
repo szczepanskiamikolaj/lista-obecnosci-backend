@@ -164,7 +164,6 @@ public class AttendanceController {
             Set<Grade> moderatorGrades = gradeRepository.findGradesByUserUsername(moderator.getUsername());
 
             for (Grade grade : moderatorGrades) {
-                System.out.println("Processing grade: " + grade.getName());
                 List<User> usersInGrade = userService.findUsersByGradeAndRole(grade.getName(), 1L);
 
                 // Group lectures by subject
@@ -173,7 +172,6 @@ public class AttendanceController {
                 List<UserAttendanceDetail> userAttendanceDetails = new ArrayList<>();
 
                 for (User user : usersInGrade) {
-                    System.out.println("Processing user: " + user.getUsername());
 
                     List<SubjectAttendanceDetail> subjectAttendanceDetails = new ArrayList<>();
 
@@ -188,8 +186,6 @@ public class AttendanceController {
                         long attendedLectures = attendanceService.countAttendancesByUserAndGradeAndSubject(user.getUsername(), grade.getName(), subject);
 
                         double attendanceRatio = (totalLectures > 0) ? ((double) attendedLectures / totalLectures) * 100 : 0;
-
-                        System.out.println("Subject: " + subject + ", Total Lectures: " + totalLectures + ", Attended Lectures: " + attendedLectures + ", Ratio: " + attendanceRatio);
 
                         SubjectAttendanceDetail subjectAttendanceDetail = new SubjectAttendanceDetail(
                                 subject,

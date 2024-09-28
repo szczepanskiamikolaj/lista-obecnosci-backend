@@ -4,6 +4,8 @@ package com.majk.spring.security.postgresql.security.services;
 import com.majk.spring.security.postgresql.models.Grade;
 import com.majk.spring.security.postgresql.repository.GradeRepository;
 import java.util.List;
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -18,9 +20,14 @@ public class GradeServiceImpl implements GradeService {
     @Autowired
     private GradeRepository gradeRepository;
 
-    @Override
     @Transactional
     public void saveGrade(Grade grade) {
+        Optional<Grade> existingGrade = gradeRepository.findByName(grade.getName());
+        
+        if (existingGrade.isPresent()) {
+            throw new IllegalArgumentException("Grade with name " + grade.getName() + " already exists.");
+        }
+        
         gradeRepository.save(grade);
     }
 

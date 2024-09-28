@@ -117,8 +117,6 @@ public class LectureController {
                     lectureIpAddress = request.getRemoteAddr();
                 }
 
-                System.out.println("Detected IP Address: " + lectureIpAddress);
-
                 newLecture.setIpAddress(lectureIpAddress);
             }
             // Schedule the deactivation task
